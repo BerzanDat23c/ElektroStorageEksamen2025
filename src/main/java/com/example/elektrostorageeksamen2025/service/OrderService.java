@@ -2,6 +2,8 @@ package com.example.elektrostorageeksamen2025.service;
 
 
 
+import com.example.elektrostorageeksamen2025.entity.Order;
+import com.example.elektrostorageeksamen2025.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;

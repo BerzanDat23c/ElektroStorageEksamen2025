@@ -1,15 +1,12 @@
-/*package com.example.elektrostorageeksamen2025.controller;
+package com.example.elektrostorageeksamen2025.controller;
 
-
-
+import com.example.elektrostorageeksamen2025.entity.Order;
+import com.example.elektrostorageeksamen2025.entity.OrderLine;
 import com.example.elektrostorageeksamen2025.service.OrderService;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
-
-
 
 @RestController
 @RequestMapping("/orders")
@@ -60,4 +57,4 @@ public class OrderController {
         }
         return ResponseEntity.notFound().build();
     }
-}*/
+}
