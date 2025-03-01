@@ -57,4 +57,27 @@ public class OrderController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order orderDetails) {
+        Optional<Order> optionalOrder = orderService.getOrderById(id);
+        if (optionalOrder.isPresent()) {
+            Order existingOrder = optionalOrder.get();
+            existingOrder.setStatus(orderDetails.getStatus());  // Opdater status
+            Order updatedOrder = orderService.saveOrder(existingOrder);
+            return ResponseEntity.ok(updatedOrder);
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
+        if (orderService.getOrderById(id).isPresent()) {
+            orderService.deleteOrder(id);
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.notFound().build();
+    }
+
+
 }

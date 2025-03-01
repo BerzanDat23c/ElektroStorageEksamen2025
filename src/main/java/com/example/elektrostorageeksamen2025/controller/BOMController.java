@@ -16,6 +16,12 @@ public class BOMController {
         this.bomService = bomService;
     }
 
+    @PostMapping
+    public ResponseEntity<BOM> createBOM(@RequestBody BOM bom) {
+        BOM savedBOM = bomService.saveBOM(bom);
+        return ResponseEntity.ok(savedBOM);
+    }
+
     @GetMapping
     public List<BOM> getAllBOMs() {
         return bomService.getAllBOMs();
